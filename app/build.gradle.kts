@@ -87,6 +87,11 @@ dependencies {
 
     // Ktor Client Serialization
     implementation(libs.ktor.client.serialization.jvm.v231)
+
+    // Testing
+    testImplementation(libs.kotlinx.serialization.json.v151)
+    testImplementation(libs.ktor.client.mock)
+    testImplementation(libs.mockk)
 }
 
 // Ensure the Kotlin Serialization plugin is applied
