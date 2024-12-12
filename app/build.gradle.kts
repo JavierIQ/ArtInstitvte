@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -80,6 +81,23 @@ dependencies {
     // hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    // Kotlinx Serialization
+    implementation(libs.kotlinx.serialization.json)
+
+    // Ktor Client Serialization
+    implementation(libs.ktor.client.serialization.jvm.v231)
+}
+
+// Ensure the Kotlin Serialization plugin is applied
+kotlin {
+    sourceSets {
+        all {
+            languageSettings {
+                optIn("kotlinx.serialization.ExperimentalSerializationApi")
+            }
+        }
+    }
 }
 
 // Allow references to generated code
