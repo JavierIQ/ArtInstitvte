@@ -24,7 +24,9 @@ data class PaginationDto(
     @SerialName("current_page")
     val currentPage: Int,
     @SerialName("next_url")
-    val nextUrl: String? = null
+    val nextUrl: String? = null,
+    @SerialName("prev_url")
+    val prevUrl: String? = null
 )
 
 @Serializable

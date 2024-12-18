@@ -2,7 +2,6 @@ package com.javieriq.artinstitvte.data.datasources.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.javieriq.artinstitvte.domain.models.Thumbnail
 
 @Entity(tableName = "artworks")
 data class ArtworkEntity(

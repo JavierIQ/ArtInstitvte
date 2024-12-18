@@ -1,7 +1,8 @@
 package com.javieriq.artinstitvte.data.datasources.remote
 
-import com.javieriq.artinstitvte.data.models.ArtworkDto
 import com.javieriq.artinstitvte.data.models.ArtworksResponse
+import com.javieriq.artinstitvte.utils.Constants
+import com.javieriq.artinstitvte.utils.Logger
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -14,11 +15,11 @@ class KtorRemoteDataSource @Inject constructor(
 ) : RemoteDataSource {
     override suspend fun fetchArtworks(): ArtworksResponse {
         return try {
-            client.get(urlString = "https://api.artic.edu/api/v1/artworks") {
+            client.get(urlString = "${Constants.BASE_URL}artworks") {
                 contentType(ContentType.Application.Json)
             }.body()
         } catch (e: Exception) {
-            // Log and handle exceptions
+            Logger.error(Constants.ERROR_FETCHING_ARTWORKS, e)
             throw Exception("Error fetching artworks: ${e.message}")
         }
     }

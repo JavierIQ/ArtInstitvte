@@ -6,5 +6,6 @@ data class Pagination(
     val offset: Int,
     val totalPages: Int,
     val currentPage: Int,
-    val nextUrl: String? = null
+    val nextUrl: String? = null,
+    val prevUrl: String? = null
 )

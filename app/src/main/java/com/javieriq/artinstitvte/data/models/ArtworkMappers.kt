@@ -6,6 +6,8 @@ import com.javieriq.artinstitvte.domain.models.Config
 import com.javieriq.artinstitvte.domain.models.Info
 import com.javieriq.artinstitvte.domain.models.Pagination
 import com.javieriq.artinstitvte.domain.models.Thumbnail
+import com.javieriq.artinstitvte.utils.orEmptyList
+import com.javieriq.artinstitvte.utils.orEmptyString
 import com.javieriq.artinstitvte.utils.orZero
 
 fun ArtworksResponse.toDomain(): ArtworkDomain {
@@ -20,30 +22,30 @@ fun ArtworksResponse.toDomain(): ArtworkDomain {
 fun ArtworkDto.toDomain(): Artwork {
     return Artwork(
         id = this.id,
-        title = this.title.orEmpty(),
+        title = this.title.orEmptyString(),
         artistTitle = this.artistTitle,
         artistId = this.artistId,
         artistIds = this.artistIds,
-        artistTitles = this.artistTitles.orEmpty(),
-        categoryIds = this.categoryIds.orEmpty(),
-        categoryTitles = this.categoryTitles.orEmpty(),
-        copyrightNotice = this.copyrightNotice.orEmpty(),
+        artistTitles = this.artistTitles.orEmptyList(),
+        categoryIds = this.categoryIds.orEmptyList(),
+        categoryTitles = this.categoryTitles.orEmptyList(),
+        copyrightNotice = this.copyrightNotice.orEmptyString(),
         dateDisplay = this.dateDisplay,
-        description = this.description.orEmpty(),
-        dimensions = this.dimensions.orEmpty(),
+        description = this.description.orEmptyString(),
+        dimensions = this.dimensions.orEmptyString(),
         imageId = this.imageId.orEmpty(),
-        mediumDisplay = this.mediumDisplay.orEmpty(),
-        shortDescription = this.shortDescription.orEmpty(),
-        styleId = this.styleId.orEmpty(),
-        styleTitle = this.styleTitle.orEmpty(),
-        subjectId = this.subjectId.orEmpty(),
-        subjectIds = this.subjectIds.orEmpty(),
-        subjectTitles = this.subjectTitles.orEmpty(),
+        mediumDisplay = this.mediumDisplay.orEmptyString(),
+        shortDescription = this.shortDescription.orEmptyString(),
+        styleId = this.styleId.orEmptyString(),
+        styleTitle = this.styleTitle.orEmptyString(),
+        subjectId = this.subjectId.orEmptyString(),
+        subjectIds = this.subjectIds.orEmptyList(),
+        subjectTitles = this.subjectTitles.orEmptyList(),
         thumbnail = Thumbnail(
-            lqip = this.thumbnail?.lowQualityImageUrl.orEmpty(),
+            lqip = this.thumbnail?.lowQualityImageUrl.orEmptyString(),
             width = this.thumbnail?.width?.orZero(),
             height = this.thumbnail?.height?.orZero(),
-            altText = this.thumbnail?.altText.orEmpty()
+            altText = this.thumbnail?.altText.orEmptyString()
         ),
     )
 }
@@ -55,21 +57,22 @@ fun PaginationDto.toDomain(): Pagination {
         offset = this.offset,
         totalPages = this.totalPages,
         currentPage = this.currentPage,
-        nextUrl = this.nextUrl.orEmpty()
+        nextUrl = this.nextUrl.orEmptyString(),
+        prevUrl = this.prevUrl.orEmptyString()
     )
 }
 
 fun InfoDto.toDomain(): Info {
     return Info(
-        licenseText = this.licenseText.orEmpty(),
-        licenseLinks = this.licenseLinks.orEmpty(),
-        version = this.version.orEmpty()
+        licenseText = this.licenseText.orEmptyString(),
+        licenseLinks = this.licenseLinks.orEmptyList(),
+        version = this.version.orEmptyString()
     )
 }
 
 fun ConfigDto.toDomain(): Config {
     return Config(
-        ifUrl = this.ifUrl.orEmpty(),
-        websiteUrl = this.websiteUrl.orEmpty()
+        ifUrl = this.ifUrl.orEmptyString(),
+        websiteUrl = this.websiteUrl.orEmptyString()
     )
 }

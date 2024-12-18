@@ -31,6 +31,8 @@ class RealApiIntegrationTest {
             contentType(ContentType.Application.Json)
         }.body()
 
+//        val nextPageResponse: HttpResponse = httpClient.get(response.pagination.nextUrl!!)
+//        assertEquals(HttpStatusCode.OK, nextPageResponse.status)
         // Ensure HTTP response is successful
         assertEquals(HttpStatusCode.OK, response.status)
 

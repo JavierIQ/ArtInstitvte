@@ -7,6 +7,8 @@ import com.javieriq.artinstitvte.data.models.toDomain
 import com.javieriq.artinstitvte.domain.models.Artwork
 import com.javieriq.artinstitvte.domain.models.ArtworkDomain
 import com.javieriq.artinstitvte.domain.models.Thumbnail
+import com.javieriq.artinstitvte.utils.Constants
+import com.javieriq.artinstitvte.utils.Logger
 import com.javieriq.artinstitvte.utils.Result
 import javax.inject.Inject
 
@@ -43,6 +45,7 @@ class ArtRepositoryImpl @Inject constructor(
             })
             Result.Success(artworkResponse)
         } catch (e: Exception) {
+            Logger.error(Constants.ERROR_FETCHING_ARTWORKS, e)
             Result.Error(e)
         }
     }
