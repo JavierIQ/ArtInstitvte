@@ -33,73 +33,73 @@ data class ArtworkDto(
     @SerialName("id")
     val id: Int,
     @SerialName("title")
-    val title: String,
+    val title: String? = null,
     @SerialName("artist_title")
     val artistTitle: String,
     @SerialName("date_display")
     val dateDisplay: String,
     @SerialName("medium_display")
-    val mediumDisplay: String,
+    val mediumDisplay: String? = null,
     @SerialName("dimensions")
-    val dimensions: String,
+    val dimensions: String? = null,
     //Description
     @SerialName("description")
-    val description: String,
+    val description: String? = null,
     @SerialName("short_description")
-    val shortDescription: String,
+    val shortDescription: String? = null,
     //Image
     @SerialName("image_id")
-    val imageId: String,
+    val imageId: String? = null,
     @SerialName("thumbnail")
     val thumbnail: ThumbnailDto?,
     //Additional Information:
     @SerialName("style_id")
-    val styleId: String,
+    val styleId: String? = null,
     @SerialName("style_title")
-    val styleTitle: String,
+    val styleTitle: String? = null,
     @SerialName("category_ids")
-    val categoryIds: List<String>,
+    val categoryIds: List<String>? = null,
     @SerialName("category_titles")
-    val categoryTitles: List<String>,
+    val categoryTitles: List<String>? = null,
     @SerialName("subject_id")
-    val subjectId: String,
+    val subjectId: String? = null,
     @SerialName("subject_ids")
-    val subjectIds: List<String>,
+    val subjectIds: List<String>? = null,
     @SerialName("subject_titles")
-    val subjectTitles: List<String>,
+    val subjectTitles: List<String>? = null,
     @SerialName("artist_id")
     val artistId: Int,
     @SerialName("artist_ids")
     val artistIds: List<Int>,
     @SerialName("artist_titles")
-    val artistTitles: List<String>,
+    val artistTitles: List<String>? = null,
     //Copyright
     @SerialName("copyright_notice")
-    val copyrightNotice: String?,
+    val copyrightNotice: String? = null,
 )
 
 @Serializable
 data class InfoDto(
     @SerialName("license_text")
-    val licenseText: String,
+    val licenseText: String? = null,
     @SerialName("license_links")
-    val licenseLinks: List<String>,
+    val licenseLinks: List<String>? = null,
     @SerialName("version")
-    val version: String
+    val version: String? = null
 )
 
 @Serializable
 data class ConfigDto(
     @SerialName("iiif_url")
-    val ifUrl: String,
+    val ifUrl: String? = null,
     @SerialName("website_url")
-    val websiteUrl: String
+    val websiteUrl: String? = null
 )
 
 @Serializable
 data class ThumbnailDto(
     @SerialName("lqip")
-    val lowQualityImageUrl: String?, // Low-quality image placeholder
+    val lowQualityImageUrl: String? = null, // Low-quality image placeholder
     @SerialName("width")
     val width: Int?,
     @SerialName("height")

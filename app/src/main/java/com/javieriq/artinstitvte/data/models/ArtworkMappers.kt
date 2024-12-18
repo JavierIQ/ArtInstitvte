@@ -20,25 +20,25 @@ fun ArtworksResponse.toDomain(): ArtworkDomain {
 fun ArtworkDto.toDomain(): Artwork {
     return Artwork(
         id = this.id,
-        title = this.title,
+        title = this.title.orEmpty(),
         artistTitle = this.artistTitle,
         artistId = this.artistId,
         artistIds = this.artistIds,
-        artistTitles = this.artistTitles,
-        categoryIds = this.categoryIds,
-        categoryTitles = this.categoryTitles,
+        artistTitles = this.artistTitles.orEmpty(),
+        categoryIds = this.categoryIds.orEmpty(),
+        categoryTitles = this.categoryTitles.orEmpty(),
         copyrightNotice = this.copyrightNotice.orEmpty(),
         dateDisplay = this.dateDisplay,
-        description = this.description,
-        dimensions = this.dimensions,
-        imageId = this.imageId,
-        mediumDisplay = this.mediumDisplay,
-        shortDescription = this.shortDescription,
-        styleId = this.styleId,
-        styleTitle = this.styleTitle,
-        subjectId = this.subjectId,
-        subjectIds = this.subjectIds,
-        subjectTitles = this.subjectTitles,
+        description = this.description.orEmpty(),
+        dimensions = this.dimensions.orEmpty(),
+        imageId = this.imageId.orEmpty(),
+        mediumDisplay = this.mediumDisplay.orEmpty(),
+        shortDescription = this.shortDescription.orEmpty(),
+        styleId = this.styleId.orEmpty(),
+        styleTitle = this.styleTitle.orEmpty(),
+        subjectId = this.subjectId.orEmpty(),
+        subjectIds = this.subjectIds.orEmpty(),
+        subjectTitles = this.subjectTitles.orEmpty(),
         thumbnail = Thumbnail(
             lqip = this.thumbnail?.lowQualityImageUrl.orEmpty(),
             width = this.thumbnail?.width?.orZero(),
@@ -61,15 +61,15 @@ fun PaginationDto.toDomain(): Pagination {
 
 fun InfoDto.toDomain(): Info {
     return Info(
-        licenseText = this.licenseText,
-        licenseLinks = this.licenseLinks,
-        version = this.version
+        licenseText = this.licenseText.orEmpty(),
+        licenseLinks = this.licenseLinks.orEmpty(),
+        version = this.version.orEmpty()
     )
 }
 
 fun ConfigDto.toDomain(): Config {
     return Config(
-        ifUrl = this.ifUrl,
-        websiteUrl = this.websiteUrl
+        ifUrl = this.ifUrl.orEmpty(),
+        websiteUrl = this.websiteUrl.orEmpty()
     )
 }
