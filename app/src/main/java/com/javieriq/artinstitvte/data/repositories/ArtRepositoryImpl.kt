@@ -7,6 +7,7 @@ import com.javieriq.artinstitvte.data.models.toDomain
 import com.javieriq.artinstitvte.domain.models.Artwork
 import com.javieriq.artinstitvte.domain.models.ArtworkDomain
 import com.javieriq.artinstitvte.domain.models.Thumbnail
+import com.javieriq.artinstitvte.utils.Result
 import javax.inject.Inject
 
 class ArtRepositoryImpl @Inject constructor(
@@ -40,9 +41,9 @@ class ArtRepositoryImpl @Inject constructor(
                     copyrightNotice = it.copyrightNotice
                 )
             })
-            Result.success(artworkResponse)
+            Result.Success(artworkResponse)
         } catch (e: Exception) {
-            Result.failure(e)
+            Result.Error(e)
         }
     }
 
@@ -51,7 +52,7 @@ class ArtRepositoryImpl @Inject constructor(
             val artworkEntity =
                 localDataSource.getArtworkById(id) ?: throw Exception("Artwork not found")
 
-            Result.success(
+            Result.Success(
                 Artwork(
                     id = artworkEntity.id,
                     title = artworkEntity.title,
@@ -82,7 +83,7 @@ class ArtRepositoryImpl @Inject constructor(
                 )
             )
         } catch (e: Exception) {
-            Result.failure(e)
+            Result.Error(e)
         }
     }
 }
