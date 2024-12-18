@@ -1,6 +1,6 @@
 package com.javieriq.artinstitvte.domain.models
 
-data class ThumbnailDomain(
+data class Thumbnail(
     val altText: String?,
     val height: Int?,
     val lqip: String?,

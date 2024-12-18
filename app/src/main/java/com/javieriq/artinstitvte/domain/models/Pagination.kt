@@ -1,6 +1,6 @@
 package com.javieriq.artinstitvte.domain.models
 
-data class PaginationDomain(
+data class Pagination(
     val total: Int,
     val limit: Int,
     val offset: Int,

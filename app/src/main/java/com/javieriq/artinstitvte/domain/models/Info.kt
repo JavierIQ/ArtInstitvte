@@ -1,6 +1,6 @@
 package com.javieriq.artinstitvte.domain.models
 
-data class InfoDomain(
+data class Info(
     val licenseText: String,
     val licenseLinks: List<String>,
     val version: String
